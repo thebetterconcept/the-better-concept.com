@@ -1,0 +1,268 @@
+:root {
+--app-bg: #fff;
+ --card-bg: #f4f1ed;
+  --tile-bg: #eee7e0; 
+  --muted: #7a7a7a;
+   --text: #171717;
+    --accent: #e7e1da;
+     --pill: #efeae4;
+      --radius: 18px; }
+
+body {
+  background: var(--app-bg);
+  color: var(--text);
+  font-family: sans-serif;
+}
+
+/* ////////////////////////////////////////////header */
+.hero {
+  position: relative;
+  height: 200px;
+  background-color: var(--app-bg) !important;
+}
+
+.hero img {
+  height: 250px;
+  width: 800px;
+  object-fit: cover;
+}
+
+
+.icn-head {
+  transition: 0.3s;
+  color: #6b1717;
+  font-size: 1.5rem;
+
+}
+.icn-head:hover {
+  scale: 1.5;
+}
+/*/////////////////////////////////////////// main */
+.card {
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.card img {
+  height: 150px;
+  object-fit:fill;
+  border-radius: 20px;
+  transition: 0.3s; /* تأثير الحركة */
+}
+.card .card-body {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 10px;
+  transition: 0.3s; /* تأثير الحركة */
+}
+/* ////////////////////////////////////////// Cards Grid //////////////////////////////////// */
+.cards-grid {
+  display: grid;
+  gap: 1rem; /* المسافة بين الكروت */
+  grid-template-columns: repeat(2, 1fr); /* موبايل: 2 كروت جنب بعض */
+}
+
+@media (min-width: 992px) {
+  /* شاشات كبيرة (من 992px وفوق) */
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr); /* 4 كروت جنب بعض */
+  }
+}
+
+.card-title {
+  font-size: 1rem;
+  text-align: left;
+  color: #fff;
+  transition: 0.3s; /* تأثير الحركة */
+}
+.card:hover .card-title {
+  font-size: 1.3em;
+}
+/* ////////////////////////////////////////// animation //////////////////////////////////// */
+.scale-in-center {
+  opacity: 0;
+  transform: scale(0); /* يبدأ بحجم صغير من المنتصف */
+  animation: scaleIn 0.3s forwards; /* مدة الحركة 1 ثانية */
+}
+
+/* Keyframes لتأثير التكبير */
+@keyframes scaleIn {
+  0% {
+    opacity: 0;
+    transform: scale(0); /* تبدأ بحجم 0 */
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1); /* تصل إلى حجمها الطبيعي */
+  }
+}
+/* //////////////////////////////////////////// item1 style/////////////////////////////////////// */
+
+.phone-shell {
+  max-width: 420px;
+  margin: 12px auto 40px;
+  border: 1px solid #ddd;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  background: #fff;
+}
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: #fff;
+}
+.topbar .title {
+  flex: 1;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+    color: #6b1717;
+
+}
+.title {
+  margin-top: 30px;
+}
+/* سهم الرجوع */
+.icon-btn {
+  width: 80px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: #dfd8d8;
+  border: 0;
+  cursor: pointer;
+  margin-top: -30px;
+  transform: rotateX("180deg");
+}
+
+.icon-btn i {
+  font-size: 1.4rem;
+  color: #000;
+}
+
+/* شريط الفلاتر */
+.menu-filters {
+  position: fixed;
+  top: 60px; /* نفس ارتفاع الهيدر */
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #fff;
+  padding: 10px 14px;
+  margin: 0;
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden; /* منع السكرول العمودي */
+  white-space: nowrap;
+  border-bottom: 1px solid var(--accent);
+  -webkit-overflow-scrolling: touch; /* سلاسة على الموبايل */
+}
+.menu-filters::-webkit-scrollbar {
+  height: 6px; /* عرض السكرول بار */
+}
+
+.menu-filters::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+.menu-filters li {
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  background: #f1f1f1;
+  flex-shrink: 0;
+  list-style: none;
+}
+.menu-filters li.filter-active {
+  background: #333;
+  color: #fff;
+}
+
+.product-card {
+  background: #fff;
+  border: 0;
+}
+.tile {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding: 14px;
+  position: relative;
+}
+.product-card-desc{
+  font-size: 10px;
+}
+.thumb {
+  background: var(--tile-bg);
+  border-radius: 16px;
+  display: grid;
+  place-items: center;
+  height: 140px;
+}
+.thumb img {
+  max-width: 88%;
+  max-height: 88%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.pill {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: var(--pill);
+  color: #666;
+  font-weight: 600;
+  font-size: 0.78rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.name {
+  font-weight: 600;
+  margin-top: 5px;
+  min-height: 26px;
+  font-size: 15px;
+}
+.brand {
+  color: #9a948c;
+  font-weight: 700;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.price {
+  color: #6e6a64;
+  margin-top: 6px;
+}
+.isotope-container {
+  margin-top: 120px; /* ارتفاع الهيدر + الفلتر */
+}
+.sticky-footer {
+  position: sticky;
+  bottom: 0;
+  background: #fff;
+  border-top: 1px solid var(--accent);
+  padding: 10px 14px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+.mekha{
+  font-size: 1.3rem;
+  color: #6b1717 !important;
+  line-height: 40px !important;
+  width: 100% !important;
+  text-decoration: none;
+}
